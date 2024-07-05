@@ -1,5 +1,4 @@
 import psycopg2
-from psycopg2 import DatabaseError
 from decouple import config
 
 def get_connection():
@@ -10,5 +9,5 @@ def get_connection():
       password=config('PGSQL_PASSWORD'),
       database=config('PGSQL_DATABASE'),
     )
-  except DatabaseError as ex:
+  except psycopg2.DatabaseError as ex:
     raise ex
